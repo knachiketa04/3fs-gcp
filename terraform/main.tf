@@ -105,7 +105,7 @@ resource "google_compute_instance" "open3fs_nodes" {
 
   # Add startup script from file
   metadata = {
-    startup-script = file("${path.module}/startup-script.sh")
+    startup-script = file("${path.module}/scripts/startup-script.sh")
   }
 
   allow_stopping_for_update = true
