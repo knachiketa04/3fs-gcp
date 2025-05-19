@@ -43,13 +43,13 @@ variable "instance_names_prefix" {
 variable "boot_disk_size_gb" {
   description = "Size of the boot disk in GB."
   type        = number
-  default     = 500
+  default     = 200
 }
 
 variable "data_disk_size_gb" {
   description = "Size of the attached data disk in GB."
   type        = number
-  default     = 300
+  default     = 500
 }
 
 variable "network_name" {

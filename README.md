@@ -94,8 +94,8 @@ Follow the instructions in `instructions/update-hosts-instructions.md` to update
 You can customize various aspects of the deployment by modifying variables in `terraform/variables.tf` or by creating a `terraform.tfvars` file:
 
 - `instance_machine_type`: VM size (default: n2-standard-16)
-- `boot_disk_size_gb`: Boot disk size (default: 500GB)
-- `data_disk_size_gb`: Data disk size (default: 300GB)
+- `boot_disk_size_gb`: Boot disk size (default: 200GB)
+- `data_disk_size_gb`: Data disk size (default: 500GB)
 - `gcp_region` and `gcp_zone`: Geographical location for resources
 
 ## Destroying the Environment
