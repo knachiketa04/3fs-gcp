@@ -1,5 +1,5 @@
-# DeepSeek 3FS on Google Cloud Platform
-
+# DeepSeek 3FS on Google Cloud Platform for app dev/testing
+**RXE (Software RDMA over Ethernet, often referred to as Soft-RoCE) Based**  
 This repository contains Terraform scripts and configuration files to deploy a DeepSeek 3FS cluster on Google Cloud Platform, following the [DeepSeek 3FS non-RDMA installation guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
 
 ## Overview
