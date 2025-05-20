@@ -43,7 +43,7 @@ cd terraform
 
 ### 3. Configure your GCP project
 
-Update the `variables.tf` file or create a `terraform.tfvars` file to override defaults:
+Update the [`variables.tf`](terraform/variables.tf) file or create a `terraform.tfvars` file to override defaults:
 
 ```hcl
 gcp_project_id = "your-gcp-project-id"
@@ -65,33 +65,35 @@ After the infrastructure is deployed, complete the following steps:
 
 #### 5.1 Set up passwordless SSH
 
-Follow the instructions in [ssh-setup-instructions.md](instructions/ssh-setup-instructions.md) to configure passwordless SSH between the cluster nodes, which is required for 3FS operation.
+Follow the instructions in [`ssh-setup-instructions.md`](instructions/ssh-setup-instructions.md) to configure passwordless SSH between the cluster nodes, which is required for 3FS operation.
 
 #### 5.2 Prepare the data disks
 
-On each node, follow the instructions in [disk-attach-instruction.md](instructions/disk-attach-instruction.md) to format the attached data disks and mount them to `/opt/3fs/storage`.
+On each node, follow the instructions in [`disk-attach-instruction.md`](instructions/disk-attach-instruction.md) to format the attached data disks and mount them to `/opt/3fs/storage`.
 
 #### 5.3 Update /etc/hosts
 
-Follow the instructions in [update-hosts-instructions.md](instructions/update-hosts-instructions.md) to update the `/etc/hosts` file on each node. This ensures proper hostname resolution within the cluster.
+Follow the instructions in [`update-hosts-instructions.md`](instructions/update-hosts-instructions.md) to update the `/etc/hosts` file on each node. This ensures proper hostname resolution within the cluster.
 
 #### 5.4 Deploy DeepSeek 3FS
 
-Update the IP addresses in the `cluster.yml` file if they differ from the default configuration (`10.10.0.11`, `10.10.0.12`, `10.10.0.13`). Then follow the DeepSeek 3FS deployment instructions from the [official guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
+Update the IP addresses in the [`cluster.yml`](cluster.yml) file if they differ from the default configuration (`10.10.0.11`, `10.10.0.12`, `10.10.0.13`). Then follow the DeepSeek 3FS deployment instructions from the [official guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
 
 ## Configuration Files
 
-- `terraform/variables.tf`: Contains all configurable parameters for the deployment
-- `terraform/main.tf`: Main Terraform configuration defining GCP resources
-- `terraform/outputs.tf`: Defines outputs after deployment, including IP addresses
-- `scripts/startup-script.sh`: Script that runs on instance startup to configure RXE and Docker
-- `cluster.yml`: 3FS cluster configuration
-- `instructions/ssh-setup-instructions.md`: Instructions for setting up SSH keys
-- `instructions/disk-attach-instruction.md`: Instructions for formatting and mounting data disks
+- [`terraform/variables.tf`](terraform/variables.tf): Contains all configurable parameters for the deployment
+- [`terraform/main.tf`](terraform/main.tf): Main Terraform configuration defining GCP resources
+- [`terraform/outputs.tf`](terraform/outputs.tf): Defines outputs after deployment, including IP addresses
+- [`terraform/versions.tf`](terraform/versions.tf): Specifies Terraform and provider version requirements
+- [`scripts/startup-script.sh`](scripts/startup-script.sh): Script that runs on instance startup to configure RXE and Docker
+- [`cluster.yml`](cluster.yml): 3FS cluster configuration
+- [`instructions/ssh-setup-instructions.md`](instructions/ssh-setup-instructions.md): Instructions for setting up SSH keys
+- [`instructions/disk-attach-instruction.md`](instructions/disk-attach-instruction.md): Instructions for formatting and mounting data disks
+- [`instructions/update-hosts-instructions.md`](instructions/update-hosts-instructions.md): Instructions for updating host files
 
 ## Customization Options
 
-You can customize various aspects of the deployment by modifying variables in `terraform/variables.tf` or by creating a `terraform.tfvars` file:
+You can customize various aspects of the deployment by modifying variables in [`terraform/variables.tf`](terraform/variables.tf) or by creating a `terraform.tfvars` file:
 
 - `instance_machine_type`: VM size (default: n2-standard-16)
 - `boot_disk_size_gb`: Boot disk size (default: 200GB)
@@ -118,3 +120,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This repository is licensed under the [MIT License](LICENSE).
+
+## Performance Benchmarks
+
+For benchmark results comparing local disk performance vs. 3FS filesystem performance, see [`fio-test/fio-tests.md`](fio-test/fio-tests.md).
