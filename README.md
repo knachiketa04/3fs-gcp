@@ -120,7 +120,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This repository is licensed under the [MIT License](LICENSE).
-
-## Performance Benchmarks
-
-For benchmark results comparing local disk performance vs. 3FS filesystem performance, see [`fio-test/fio-tests.md`](fio-test/fio-tests.md).
