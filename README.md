@@ -71,13 +71,13 @@ Follow the instructions in `instructions/ssh-setup-instructions.md` to configure
 
 On each node, follow the instructions in `instructions/disk-attach-instruction.md` to format the attached data disks and mount them to `/opt/3fs/storage`.
 
-#### 5.3 Deploy DeepSeek 3FS
-
-Update the IP addresses in the `cluster.yml` file if they differ from the default configuration (`10.10.0.11`, `10.10.0.12`, `10.10.0.13`). Then follow the DeepSeek 3FS deployment instructions from the [official guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
-
-#### 5.4 Update /etc/hosts
+#### 5.3 Update /etc/hosts
 
 Follow the instructions in `instructions/update-hosts-instructions.md` to update the `/etc/hosts` file on each node. This ensures proper hostname resolution within the cluster.
+
+#### 5.4 Deploy DeepSeek 3FS
+
+Update the IP addresses in the `cluster.yml` file if they differ from the default configuration (`10.10.0.11`, `10.10.0.12`, `10.10.0.13`). Then follow the DeepSeek 3FS deployment instructions from the [official guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
 
 ## Configuration Files
 
