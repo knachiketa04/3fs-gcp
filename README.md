@@ -65,15 +65,15 @@ After the infrastructure is deployed, complete the following steps:
 
 #### 5.1 Set up passwordless SSH
 
-Follow the instructions in `instructions/ssh-setup-instructions.md` to configure passwordless SSH between the cluster nodes, which is required for 3FS operation.
+Follow the instructions in [ssh-setup-instructions.md](instructions/ssh-setup-instructions.md) to configure passwordless SSH between the cluster nodes, which is required for 3FS operation.
 
 #### 5.2 Prepare the data disks
 
-On each node, follow the instructions in `instructions/disk-attach-instruction.md` to format the attached data disks and mount them to `/opt/3fs/storage`.
+On each node, follow the instructions in [disk-attach-instruction.md](instructions/disk-attach-instruction.md) to format the attached data disks and mount them to `/opt/3fs/storage`.
 
 #### 5.3 Update /etc/hosts
 
-Follow the instructions in `instructions/update-hosts-instructions.md` to update the `/etc/hosts` file on each node. This ensures proper hostname resolution within the cluster.
+Follow the instructions in [update-hosts-instructions.md](instructions/update-hosts-instructions.md) to update the `/etc/hosts` file on each node. This ensures proper hostname resolution within the cluster.
 
 #### 5.4 Deploy DeepSeek 3FS
 
