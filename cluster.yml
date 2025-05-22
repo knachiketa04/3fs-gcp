@@ -51,6 +51,11 @@ services:
   clickhouse:
     nodes:
       - open3fs-node-1
+  grafana:
+    nodes:
+      - open3fs-node-1
+    # TCP port for Grafana
+    port: 3000
 images:
   registry: ""
   3fs:
@@ -62,3 +67,6 @@ images:
   clickhouse:
     repo: "open3fs/clickhouse"
     tag: "25.1-jammy"
+  grafana:
+    repo: "open3fs/grafana"
+    tag: "12.0.0"
