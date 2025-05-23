@@ -71,6 +71,20 @@ resource "google_compute_firewall" "allow_icmp_internal" {
   target_tags   = ["open3fs-node"]
 }
 
+resource "google_compute_firewall" "allow_grafana" {
+  name    = "${var.network_name}-allow-grafana"
+  network = google_compute_network.vpc_network.id
+  project = var.gcp_project_id
+
+  allow {
+    protocol = "tcp"
+    ports    = ["3000"]
+  }
+
+  source_ranges = ["0.0.0.0/0"] # Allows traffic from any external IP
+  target_tags   = ["grafana-node"] # Apply to instances tagged 'grafana-node'
+}
+
 
 # -------------------------------------
 # Compute Instances
@@ -82,7 +96,7 @@ resource "google_compute_instance" "open3fs_nodes" {
   zone         = var.gcp_zone # Use the single zone variable
   name         = "${var.instance_names_prefix}-${count.index + 1}"  # Node Count starts from 1
   machine_type = var.instance_machine_type
-  tags         = ["open3fs-node", var.network_name]
+  tags         = concat(["open3fs-node", var.network_name], count.index == 0 ? ["grafana-node"] : [])
 
   boot_disk {
     initialize_params {
