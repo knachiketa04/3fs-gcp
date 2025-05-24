@@ -112,6 +112,24 @@ terraform destroy
 - The default configuration allows SSH access from any IP (`0.0.0.0/0`). For production use, restrict this to your IP address or VPN range.
 - Consider implementing additional security measures for production deployments.
 
+## Fio Test with USRBIO Engine
+
+Once your 3FS cluster is deployed and running, you can perform I/O performance testing using fio with the USRBIO engine. This test will validate the performance of the 3FS filesystem:
+
+```bash
+docker exec -it 3fs-client fio -numjobs=1 -fallocate=none -ioengine=external:/usr/lib/hf3fs_usrbio.so -direct=1 -rw=read -bs=4MB -group_reporting -size=200MB -time_based -runtime=300 -iodepth=1 -name=/mnt/3fs/test0 -mountpoint=/mnt/3fs
+```
+
+This command will:
+- Run a single job (`-numjobs=1`)
+- Use the 3FS USRBIO engine (`-ioengine=external:/usr/lib/hf3fs_usrbio.so`)
+- Perform direct I/O (`-direct=1`)
+- Execute read operations (`-rw=read`)
+- Use 4MB block size (`-bs=4MB`)
+- Run for 300 seconds (`-runtime=300`)
+- Test with a 200MB file size (`-size=200MB`)
+- Use the 3FS mount point (`-mountpoint=/mnt/3fs`)
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
