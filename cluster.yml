@@ -60,7 +60,7 @@ images:
   registry: ""
   3fs:
     repo: "open3fs/3fs"
-    tag: "20250327"
+    tag: "20250410"
   fdb:
     repo: "open3fs/foundationdb"
     tag: "7.3.63"
