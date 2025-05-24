@@ -1,4 +1,5 @@
 # DeepSeek 3FS on Google Cloud Platform for app dev/testing (RXE: Software RDMA over Ethernet/ Soft-RoCE Based)  
+[![License](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](LICENSE)  
 This repository contains Terraform scripts and configuration files to deploy a DeepSeek 3FS cluster on Google Cloud Platform, following the [DeepSeek 3FS non-RDMA installation guide](https://blog.open3fs.com/2025/04/01/deepseek-3fs-non-rdma-install-faster-ecosystem-app-dev-testing.html).
 
 ## Overview
@@ -137,7 +138,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Related Projects
 
 - [open3fs/m3fs](https://github.com/open3fs/m3fs): m3fs(Make 3FS) is the toolset designed to manage 3FS cluster.  
-
-## License
-
-This repository is licensed under the [MIT License](LICENSE).
